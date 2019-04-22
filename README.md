@@ -1,30 +1,30 @@
-# HumanDB Auth API Connector
+# HumanDB Auth API Connector REST
 
 This module provides an easy and convenient way for node.js apps to connect to the HumanDB Authorization API.  Your container must have an existing authorized API user in order to connect.
 
 ## Usage
 
-The init function returns an authenticated feathers app instance that connects to the auth API via websockets.  For more info on how to use the feathers client, see the [official Feathers documentation](https://docs.feathersjs.com/).
+The init function returns an authenticated feathers app instance that connects to the auth API via REST.  For more info on how to use the feathers REST client, see the [official Feathers documentation](https://docs.feathersjs.com/).
 
 First add the module to your package.json:
 
 ### Yarn
 
 ```
-yarn add https://github.com/jordandenison/humandb-auth-connector.git
+yarn add https://github.com/jordandenison/humandb-auth-connector-rest.git
 ```
 
 ### NPM
 
 ```
-npm install --save https://github.com/jordandenison/humandb-auth-connector.git
+npm install --save https://github.com/jordandenison/humandb-auth-connector-rest.git
 ```
 
 Example authenticating and fetching the "owner" user:
 
 
 ```
-const { init } = require('humandb-auth-api-connector')
+const { init } = require('humandb-auth-api-connector-rest')
 
 const authApiUsername = 'test'
 const authApiPassword = 'test'
@@ -60,9 +60,7 @@ const start = async () => {
 }
 ```
 
-## REST API Example
-
-If node.js and/or a websockets connection is not desired, feathers also exposes a REST API.  For example:
+## Curl Examples
 
 Getting an access token:
 ```
