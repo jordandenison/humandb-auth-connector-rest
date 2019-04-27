@@ -12,7 +12,7 @@ const restClient = rest(url)
 
 app
   .configure(restClient.superagent(superagent))
-  .configure(auth({ path: '/auth/authentication' }))
+  .configure(auth({ path: '/authentication' }))
 
 const delay = async time => new Promise(resolve => setTimeout(resolve, time))
 
@@ -22,7 +22,7 @@ const authenticate = async (email, password) => {
     const res = await app.authenticate({ strategy: 'local', email, password })
     logger.info('Successfully authenticated against auth API')
 
-    accessToken = res.body.accessToken
+    accessToken = res.accessToken
   } catch (e) {
     logger.error(`Error authenticating against auth API: ${e.message}`)
 
